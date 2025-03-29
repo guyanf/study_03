@@ -22,4 +22,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run API Tests
-        run: pytest test_api.py --junitxml=report.xml
+        run: pytest ./tests/test_api.py --junitxml=report.xml
