@@ -23,3 +23,9 @@ jobs:
 
       - name: Run API Tests
         run: pytest ./tests/test_api.py --junitxml=report.xml
+
+      - name: Run API Tests Report
+        run: pytest ./tests/test_api.py --html=./htmlcov/report.html
+
+      - name: Run API Tests Cov
+        run: pytest ./tests/test_api.py --cov --cov-report=html
