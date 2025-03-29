@@ -25,7 +25,19 @@ jobs:
         run: pytest ./tests/test_api.py --junitxml=report.xml
 
       - name: Run API Tests Report
-        run: pytest ./tests/test_api.py --html=./htmlcov/report.html
+        run: pytest ./tests/test_api.py --html=report.html
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: report.html
 
       - name: Run API Tests Cov
         run: pytest ./tests/test_api.py --cov --cov-report=html
+
+      - name: Upload Test Report Cov
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report-cov
+          path: htmlcov
