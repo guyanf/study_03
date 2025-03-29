@@ -97,18 +97,6 @@ def test_api_with_basic_auth():
     assert response.status_code == 200
 
 
-# def test_api_with_bearer_token():
-#     url = "https://httpbin.org/basic-auth/user/pass"
-#     headers = {
-#         "Authorization": "user pass"
-#     }
-#
-#     response = requests.get(url, headers=headers)
-#     print(response.status_code)
-#     print("*"*40)
-#     assert response.status_code == 200
-#
-
 def test_api_404():
     url = "https://jsonplaceholder.typicode.com/posts/9999"
     response = requests.get(url)
