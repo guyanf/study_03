@@ -30,12 +30,8 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y google-chrome-stable
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
-          DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          wget -N https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          rm chromedriver_linux64.zip
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+          sudo apt install -y chromedriver
 
       - name: Run Selenium Tests
         run: pytest tests/test_selenium.py --html=report.html
