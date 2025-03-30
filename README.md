@@ -1,2 +1,2 @@
-# study_03
-about pytest ci/cd
+# PYTEST
+About pytest ci/cd
