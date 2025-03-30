@@ -1,0 +1,43 @@
+name: Selenium UI Tests
+
+on: 
+  push:
+    branches:
+      - main  # 在 main 分支 push 代码时触发
+  pull_request:
+    branches:
+      - main  # 在 main 分支 PR 时触发
+
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest  # 使用 Ubuntu 运行环境
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # 拉取代码
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install selenium pytest pytest-html webdriver-manager
+
+      - name: Install Chrome & ChromeDriver
+        run: |
+          sudo apt update
+          sudo apt install -y google-chrome-stable
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+          sudo apt install -y chromedriver
+
+      - name: Run Selenium Tests
+        run: pytest tests/test_selenium.py --html=report.html
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Selenium Test Report
+          path: report.html
