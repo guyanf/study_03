@@ -24,12 +24,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install selenium pytest pytest-html webdriver-manager
+          pip install selenium pytest pytest-html
 
       - name: Install Chrome & ChromeDriver
         run: |
           sudo apt update
-          sudo apt install -y google-chrome-stable
+          sudo apt install -y google-chrome-stable chromedriver
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
           sudo apt install -y chromedriver
 
