@@ -4,9 +4,11 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 def test_login():
-    # 使用 WebDriver Manager 自动管理 ChromeDriver
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service)
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
+    # driver.get("https://books-pwakit.appspot.com/")  # 这个页面包含 Shadow DOM
+
 
     # 访问测试网站
     driver.get("https://www.saucedemo.com/")
