@@ -46,7 +46,8 @@ jobs:
       - name: Download the correct ChromeDriver version
         run: |
           VERSION=135.0.7049.114
-          wget https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip
+          # wget https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip
+          wget -c https://storage.googleapis.com/chrome-for-testing-public/$VERSION/linux64/chromedriver-linux64.zip
           unzip chromedriver_linux64.zip
           sudo rm /usr/local/bin/chromedriver
           sudo mv chromedriver /usr/local/bin
