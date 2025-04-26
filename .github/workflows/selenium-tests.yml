@@ -35,13 +35,21 @@ jobs:
       # - name: Setup ChromeDriver
       #   uses: actions/setup-chrome-driver@v1
 
-      - name: Download ChromeDriver
+      # - name: Download ChromeDriver
+      #   run: |
+      #     VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+      #     wget https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip
+      #     unzip chromedriver_linux64.zip
+      #     sudo mv chromedriver /usr/local/bin
+
+      
+      - name: Download the correct ChromeDriver version
         run: |
-          VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          VERSION=135.0.7049.114
           wget https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
+          sudo rm /usr/local/bin/chromedriver
           sudo mv chromedriver /usr/local/bin
-
 
       - name: Run Selenium Tests
         run: pytest -vs --html=report.html
