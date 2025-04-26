@@ -10,17 +10,14 @@ pipeline {
             steps {
                 sh '''
                     python3 -m venv venv
-                    source venv/bin/activate
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
+                    ./venv/bin/pip install -r requirements.txt
                 '''
             }
         }
         stage('Run Tests') {
             steps {
                 sh '''
-                    source venv/bin/activate
-                    pytest tests/ --junitxml=report.xml
+                    ./venv/bin/pytest tests/ --junitxml=report.xml
                 '''
             }
         }
