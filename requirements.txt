@@ -1,2 +1,6 @@
 requests
 pytest
+selenium 
+pytest-cov
+allure-pytest
+pytz
