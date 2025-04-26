@@ -49,8 +49,8 @@ jobs:
           # wget https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip
           wget -c https://storage.googleapis.com/chrome-for-testing-public/$VERSION/linux64/chromedriver-linux64.zip
           unzip chromedriver-linux64.zip
-          sudo rm /usr/local/bin/chromedriver
-          sudo mv chromedriver /usr/local/bin
+          # sudo rm /usr/local/bin/chromedriver
+          sudo mv -f chromedriver /usr/local/bin
 
       - name: Run Selenium Tests
         run: pytest -vs --html=report.html
