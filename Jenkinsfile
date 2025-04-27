@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/guyanf/study_03.git', branch: 'main'
+                git url: 'git@github.com:guyanf/study_03.git', branch: 'main'
             }
         }
         stage('Setup Virtualenv and Install dependencies') {
@@ -37,8 +37,8 @@ pipeline {
         stage('Upload Report') {
             steps {
                 sh '''
-                    git config user.email "guyanf@163.com"
-                    git config user.name "Thomas"
+                    git config user.email "guyanf@gmail.com"
+                    git config user.name "guyanf"
                     git add report.xml
                     git commit -m "Upload pytest report [skip ci]" || echo "No changes to commit"
                     git push origin main
