@@ -25,23 +25,12 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install selenium pytest pytest-html webdriver-manager
-
+          pip install -r requirements.txt
 
       - name: Install Google Chrome
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-
-      # - name: Setup ChromeDriver
-      #   uses: actions/setup-chrome-driver@v1
-
-      # - name: Download ChromeDriver
-      #   run: |
-      #     VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-      #     wget https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip
-      #     unzip chromedriver_linux64.zip
-      #     sudo mv chromedriver /usr/local/bin
-
       
       - name: Download the correct ChromeDriver version
         run: |
