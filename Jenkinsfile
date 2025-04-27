@@ -26,5 +26,12 @@ pipeline {
                 junit 'report.xml'
             }
         }
+        stage('Upload Report to GitHub') {
+            steps {
+                sh 'git add report.xml'
+                sh 'git commit -m "Add pytest report"'
+                sh 'git push origin main'
+            }
+        }
     }
 }
