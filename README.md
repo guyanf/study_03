@@ -1,9 +1,6 @@
 # PYTEST
-About pytest ci/cd
+About pytest framework
 
 Github CI/CD
 
 Jenkins
-
-
-timezone

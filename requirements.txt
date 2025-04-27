@@ -1,8 +1,8 @@
 requests
 pytest
-selenium 
 pytest-cov
 pytest-mock
 allure-pytest
+selenium
 pytz
 webdriver_manager
