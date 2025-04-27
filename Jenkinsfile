@@ -37,8 +37,8 @@ pipeline {
         stage('Upload Report') {
             steps {
                 sh '''
-                    git config user.email "guyanf@gmail.com"
-                    git config user.name "guyanf"
+                    git config user.email "guyanf@163.com"
+                    git config user.name "Thomas"
                     git add report.xml
                     git commit -m "Upload pytest report [skip ci]" || echo "No changes to commit"
                     git push origin main
