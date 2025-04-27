@@ -16,14 +16,6 @@ pipeline {
         }
 
 
-        stage('Fix Git Remote') {
-            steps {
-                sh '''
-                    git remote set-url origin git@github.com:guyanf/study_03.git
-                    git remote -v
-                '''
-            }
-        }
         stage('Run Tests') {
             steps {
                 sh '''
@@ -36,24 +28,14 @@ pipeline {
                 junit 'report.xml'
             }
         }
-        stage('Upload Report to GitHub') {
-            steps {
-                sh 'git add report.xml'
-                sh 'git commit -m "Add pytest report"'
-                sh 'git push origin main'
-            }
-        }
-
-        // stage('Upload Report') {
+        // stage('Upload Report to GitHub') {
         //     steps {
-        //         sh '''
-        //             git config user.email "guyanf@gmail.com"
-        //             git config user.name "guyanf"
-        //             git add report.xml
-        //             git commit -m "Upload pytest report [skip ci]" || echo "No changes to commit"
-        //             git push origin main
-        //         '''
+        //         sh 'git add report.xml'
+        //         sh 'git commit -m "Add pytest report"'
+        //         sh 'git push origin main'
         //     }
         // }
+
+        
     }
 }
