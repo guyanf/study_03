@@ -3,8 +3,8 @@ pipeline {
 
 
     environment {
-        IMAGE_NAME = 'study_03_app11'
-        CONTAINER_NAME = 'study_03_container11'
+        IMAGE_NAME = 'study_03_app22'
+        CONTAINER_NAME = 'study_03_container22'
     }
 
     stages {
@@ -42,6 +42,12 @@ pipeline {
         //         sh 'git push origin main'
         //     }
         // }  
+
+        stage('Setup Virtualenv and Install dependencies') {
+            steps {
+                sh 'docker rm -f ${CONTAINER_NAME} || true'
+            }
+        }
 
         stage('Clone Repository') {
             steps {
