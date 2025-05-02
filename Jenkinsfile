@@ -57,13 +57,13 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
-            steps {
-                script {
-                    docker.image("${IMAGE_NAME}").run('-d --name ${CONTAINER_NAME} -p 5000:5000')
-                }
-            }
-        }
+        // stage('Run Docker Container') {
+        //     steps {
+        //         script {
+        //             docker.image("${IMAGE_NAME}").run('-d --name ${CONTAINER_NAME} -p 5000:5000')
+        //         }
+        //     }
+        // }
     }
 
     // post {
