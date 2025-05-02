@@ -17,6 +17,7 @@ from requests.auth import HTTPBasicAuth
 
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
+
 @pytest.fixture
 def sample_data():
     """ 预设测试数据 """
@@ -26,11 +27,13 @@ def sample_data():
         "userId": 1
     }
 
+
 def test_get_posts():
     """ 测试 GET 请求 """
     response = requests.get(f"{BASE_URL}/posts/1")
     assert response.status_code == 200
     assert "title" in response.json()
+
 
 def test_create_post(sample_data):
     """ 测试 POST 请求 """
@@ -38,11 +41,13 @@ def test_create_post(sample_data):
     assert response.status_code == 201
     assert response.json()["title"] == sample_data["title"]
 
+
 def test_update_post(sample_data):
     """ 测试 PUT 请求 """
     response = requests.put(f"{BASE_URL}/posts/1", json=sample_data)
     assert response.status_code == 200
     assert response.json()["title"] == sample_data["title"]
+
 
 def test_delete_post():
     """ 测试 DELETE 请求 """
@@ -77,7 +82,6 @@ def test_mock_get_post(mocker):
 
     assert response.status_code == 200
     assert response.json()["title"] == "Mocked title"
-
 
 
 def test_api_timeout():

@@ -1,0 +1,8 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintArgs": ["--rcfile=.pylintrc"],
+    "python.linting.flake8Args": ["--config=.flake8"]
+  }
+  

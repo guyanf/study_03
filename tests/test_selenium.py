@@ -3,12 +3,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
+
 def test_login():
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
     # driver.get("https://books-pwakit.appspot.com/")  # 这个页面包含 Shadow DOM
-
 
     # 访问测试网站
     driver.get("https://www.saucedemo.com/")

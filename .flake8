@@ -1,0 +1,8 @@
+[flake8]
+max-line-length = 120
+ignore = E203, E266, E501, W503, F401
+exclude = .git,__pycache__,venv,.venv,build,dist,*.pyc
+select = B,C,E,F,W,T4,B9
+per-file-ignores =
+    tests/*: D, S101
+    conftest.py: D, S101

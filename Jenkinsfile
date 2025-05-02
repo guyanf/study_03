@@ -1,5 +1,12 @@
 pipeline {
     agent any
+
+
+    environment {
+        IMAGE_NAME = 'study_03_app'
+        CONTAINER_NAME = 'study_03_container'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -35,6 +42,35 @@ pipeline {
         //         sh 'git push origin main'
         //     }
         // }
+
+                stage('Clone Repository') {
+            steps {
+                git 'https://github.com/guyanf/study_03.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${IMAGE_NAME}")
+                }
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    docker.image("${IMAGE_NAME}").run('-d --name ${CONTAINER_NAME} -p 5000:5000')
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline execution completed.'
+        }
+    }
 
         
     }

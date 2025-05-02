@@ -9,5 +9,8 @@ pytest-cov
 pytest-mock
 allure-pytest
 selenium
+pyyaml
 pytz
 webdriver_manager
+pylint
+flake8
