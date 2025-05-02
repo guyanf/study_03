@@ -41,9 +41,9 @@ pipeline {
         //         sh 'git commit -m "Add pytest report"'
         //         sh 'git push origin main'
         //     }
-        // }
+        // }  
 
-                stage('Clone Repository') {
+        stage('Clone Repository') {
             steps {
                 git 'https://github.com/guyanf/study_03.git'
             }
@@ -72,6 +72,5 @@ pipeline {
         }
     }
 
-        
-    }
+    
 }
