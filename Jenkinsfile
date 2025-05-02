@@ -49,13 +49,13 @@ pipeline {
             }
         }
 
-        // stage('Build Docker Image') {
-        //     steps {
-        //         script {
-        //             docker.build("${IMAGE_NAME}")
-        //         }
-        //     }
-        // }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${IMAGE_NAME}")
+                }
+            }
+        }
 
         // stage('Run Docker Container') {
         //     steps {
