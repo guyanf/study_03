@@ -43,7 +43,7 @@ pipeline {
         //     }
         // }  
 
-        stage('Setup Virtualenv and Install dependencies') {
+        stage('Delete Virtualenv') {
             steps {
                 sh 'docker rm -f ${CONTAINER_NAME} || true'
             }
