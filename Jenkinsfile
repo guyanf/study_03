@@ -45,10 +45,9 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/guyanf/study_03.git'
+                git 'https://github.com/guyanf/study_03.git', branch: 'main'
             }
         }
-
 
         stage('Build Docker Image') {
             steps {
