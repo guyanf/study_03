@@ -49,6 +49,7 @@ pipeline {
             }
         }
 
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -66,11 +67,11 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo 'Pipeline execution completed.'
-        }
-    }
+    // post {
+    //     always {
+    //         echo 'Pipeline execution completed.'
+    //     }
+    // }
 
     
 }
