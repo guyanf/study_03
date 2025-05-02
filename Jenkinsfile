@@ -3,8 +3,8 @@ pipeline {
 
 
     environment {
-        IMAGE_NAME = 'study_03_app'
-        CONTAINER_NAME = 'study_03_container'
+        IMAGE_NAME = 'study_03_app11'
+        CONTAINER_NAME = 'study_03_container11'
     }
 
     stages {
